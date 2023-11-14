@@ -1,18 +1,16 @@
+@file:Suppress("DEPRECATION")
+
 package mk.ukim.finki.mpip.lab_intents
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 
 
-@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var textView: TextView
@@ -20,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnGoToImplicitActivity: Button
     private lateinit var btnSelectImage: Button
 
-    var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+    private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
         if ( result.resultCode == Activity.RESULT_OK)
         {
             val data: Intent? = result.data
@@ -58,14 +56,5 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(Intent.createChooser(gallery, "Open image with..."), 100)
         }
     }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && requestCode == 100) {
-            val previewIntent = Intent(Intent.ACTION_VIEW)
-            previewIntent.setDataAndType(data?.data, "image/*")
-            startActivity(previewIntent)
-        }
-    }
-
 
 }
