@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="btn_submit">Во ред!</string>
+    <string name="btn_cancel">Назад</string>
+    <string name="registered_activities_n" />
+    <string name="result_here">Резултатите ќе се испишат овде!</string>
+    <string name="go_to_explicit_activity">Експлицитна активност</string>
+    <string name="btn_go_to_implicit_activity">Имплицитна активност</string>
+    <string name="btn_select_image">Избери слика</string>
+    <string name="app_name">Lab_Intents</string>
+</resources>
